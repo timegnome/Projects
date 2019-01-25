@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<style>
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+	background-color: black;
+    color: white;
+}
+Header, Footer {
+    padding: 1em;
+    color: white;
+    background-color: black;
+    clear: left;
+    text-align: center;
+    border-bottom: 1px solid red;
+    border-top: 1px solid red;
+}
+
+Inputs{
+    list-style-type: none;
+	float: left;
+    max-width: 400px;
+    margin: 0;
+    color: white;
+    border-right: 1px solid red;
+}
+Outputs{
+    color: white;
+    border-left: 1px solid red;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+	border: red;
+}
+td, th {
+    border: 1px solid red;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #222020;
+}
+tr:nth-child(odd) {
+    background-color: black;
+}
+</style>
+<title>CS332</title>
+</head>
+<body>
+<div class = "container" >
+
+<Header>
+<h1>CS332 MySQL Project</h1>
+</Header>
+    
+<Inputs>
+<form action="Insert.php" method="POST">
+Insert Into Database:<br><input type="text" name="InsertInto"> <br>
+<input type="submit" value="Submit">
+</form>
+<p>Click the "Submit" button and the form-data will be sent.</p>
+
+<form action="Delete.php" method="POST">
+Delete From Database:<br><input type="text" name="DeleteFrom"> <br>
+<input type="submit" value="Submit">
+</form>
+<p>Click the "Submit" button and the form-data will be sent".</p>
+
+<form action="Professor.php" method="POST">
+Search Professors:<br><input type="text" name="Professor"> <br>
+<input type="submit" value="Submit">
+</form>
+<p>Click the "Submit" button and the form-data will be sent".</p>
+
+<form action="CourseAndSection.php" method="POST">
+Search Course:<br><input type="text" name="CourseNum"><br>
+And Section: <br><input type="text" name="SectionNum"> <br>
+<input type="submit" value="Submit">
+</form>
+<p>Click the "Submit" button and the form-data will be sent".</p>
+
+<form action="Course.php" method="POST">
+Search Students Course Number:<br><input type="text" name="CourseNumber"> <br>
+<input type="submit" value="Submit">
+</form>
+<p>Click the "Submit" button and the form-data will be sent".</p>
+
+<form action="Student.php" method="POST">
+Search Students CWID:<br><input type="text" name="CWID"> <br>
+<input type="submit" value="Submit">
+</form>
+<p>Click the "Submit" button and the form-data will be sent".</p>
+</Inputs>
+
+<Outputs>
+	<table id="OutputsTable">
+	</table>
+</Outputs>
+
+<Footer>
+	This project was written by Marcel Maxwell, Craig Sirois, Bernard Do.
+</Footer>
+</div>
+<!SELECT * FROM PROFESSOR,SECTION WHERE PROFESSOR.SSN = SSN AND SECTION.PROFESSORSSN = SSN
+
+SELECT Course, Grade FROM ENROLLMENT,STUDENT WHERE ENROLLMENT.STUDENTCWID = CWID AND ENROLLMENT.STUDENT = CWID
+
+SELECT SECTION,Classroom,MeetingDay,COUNT(STUDENT) FROM ENROLLMENT,COURSE
+WHERE ENROLLMENT.COURSEID=COURSEID AND COURSE.COURSEID=COURSEID AND SECTION.COURSEID = COURSEID
+GROUP BY SECTION
+
+SELECT DISTINCT GRADE, COUNT(*) AS count FROM ENROLLMENT,SECTION WHERE ENROLLMENT.COURSEID= COURSEID
+AND SECTION.SECTIONID = SECTIONID
+GROUP BY GRADE>
+</body>
+</html>
